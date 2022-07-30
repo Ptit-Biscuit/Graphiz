@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.github.ptitbiscuit"
-version = "1.0"
+version = "1.0.0"
 
 val openrndrVersion = "0.3.58"
 val openrndrOs = when (current()) {
