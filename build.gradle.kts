@@ -5,7 +5,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.ptit-biscuit"
+group = "com.github.ptitbiscuit"
 version = "1.0"
 
 val openrndrVersion = "0.3.58"
@@ -75,7 +75,7 @@ publishing {
             artifact(tasks.sourcesJar)
 
             groupId = project.group.toString()
-            artifactId = project.name
+            artifactId = "graphiz"
             version = "v${project.version}"
         }
     }
