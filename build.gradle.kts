@@ -2,10 +2,11 @@ import org.gradle.internal.os.OperatingSystem.*
 
 plugins {
     kotlin("multiplatform") version "1.7.10"
+    `maven-publish`
 }
 
 group = "com.github.ptit-biscuit"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 val openrndrVersion = "0.3.58"
 val openrndrOs = when (current()) {
@@ -17,7 +18,10 @@ val openrndrOs = when (current()) {
 
 repositories {
     mavenCentral()
-    maven(url = "https://dl.bintray.com/openrndr/openrndr")
+
+    dependencies {
+        maven(url = "https://dl.bintray.com/openrndr/openrndr")
+    }
 }
 
 fun openrndr(module: String): Any {
@@ -54,6 +58,25 @@ kotlin {
             dependencies {
                 implementation(kotlin("test"))
             }
+        }
+    }
+}
+
+java {
+    targetCompatibility = JavaVersion.VERSION_18
+    sourceCompatibility = JavaVersion.VERSION_18
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("grapiz") {
+            from(components["java"])
+            artifact(tasks.sourcesJar)
+
+            groupId = project.group.toString()
+            artifactId = project.name
+            version = "v${project.version}"
         }
     }
 }
