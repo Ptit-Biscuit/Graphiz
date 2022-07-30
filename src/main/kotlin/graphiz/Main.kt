@@ -36,7 +36,7 @@ fun main() {
 
     application {
         program {
-            extend(Graphiz(graph, "src/jvmMain/resources/Roboto-Light.ttf"))
+            extend(Graphiz(graph, "src/main/resources/Roboto-Light.ttf"))
         }
     }
 }

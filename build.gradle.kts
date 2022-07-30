@@ -1,7 +1,7 @@
 import org.gradle.internal.os.OperatingSystem.*
 
 plugins {
-    kotlin("multiplatform") version "1.7.10"
+    kotlin("jvm") version "1.7.10"
     `maven-publish`
 }
 
@@ -33,18 +33,8 @@ fun openrndrNatives(module: String): Any {
 }
 
 kotlin {
-    jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = "1.8"
-        }
-        withJava()
-        testRuns["test"].executionTask.configure {
-            useJUnitPlatform()
-        }
-    }
-    
     sourceSets {
-        val jvmMain by getting {
+        val main by getting {
             dependencies {
                 implementation(openrndr("core"))
                 implementation(openrndr("gl3"))
@@ -54,11 +44,8 @@ kotlin {
                 implementation("org.slf4j:slf4j-nop:1.7.25")
             }
         }
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
+
+        main.kotlin.srcDir("src/main/kotlin")
     }
 }
 
