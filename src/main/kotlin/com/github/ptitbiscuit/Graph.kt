@@ -1,4 +1,4 @@
-package graphiz
+package com.github.ptitbiscuit
 
 data class Graph<T>(val vertices: Set<Vertex<T>>, val edges: Set<Edge<T>>) {
     constructor(graphBuilder: GraphBuilder<T>) : this(graphBuilder.vertices, graphBuilder.edges)

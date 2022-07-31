@@ -1,5 +1,7 @@
-package graphiz
+package com.github.ptitbiscuit.example
 
+import com.github.ptitbiscuit.*
+import com.github.ptitbiscuit.openrndr.extension.Graphiz
 import org.openrndr.application
 
 fun main() {

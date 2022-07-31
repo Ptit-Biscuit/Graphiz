@@ -49,12 +49,6 @@ kotlin {
     }
 }
 
-java {
-    targetCompatibility = JavaVersion.VERSION_18
-    sourceCompatibility = JavaVersion.VERSION_18
-    withSourcesJar()
-}
-
 publishing {
     publications {
         create<MavenPublication>("graphiz") {

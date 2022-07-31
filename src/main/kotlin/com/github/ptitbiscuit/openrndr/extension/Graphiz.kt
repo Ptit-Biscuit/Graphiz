@@ -1,5 +1,7 @@
-package graphiz
+package com.github.ptitbiscuit.openrndr.extension
 
+import com.github.ptitbiscuit.Graph
+import com.github.ptitbiscuit.Vertex
 import org.openrndr.Extension
 import org.openrndr.MouseButton
 import org.openrndr.Program

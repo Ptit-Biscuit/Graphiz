@@ -1,4 +1,4 @@
-package graphiz
+package com.github.ptitbiscuit
 
 class GraphBuilder<T> internal constructor() {
     internal var vertices = setOf<Vertex<T>>()
