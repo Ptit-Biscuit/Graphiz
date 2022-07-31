@@ -6,6 +6,7 @@ import org.openrndr.application
 
 fun main() {
     val graph = Graph {
+        // declare vertices
         val aud = Vertex("AUD")
         val chf = Vertex("CHF")
         val eur = Vertex("EUR")
@@ -16,6 +17,7 @@ fun main() {
 
         vertices { setOf(aud, chf, eur, inr, jpy, usd, krw) }
 
+        // create edges between vertices (weight is optional)
         edges {
             setOf(
                 aud edgeWith chf value 0.9661,
@@ -28,6 +30,7 @@ fun main() {
             )
         }
 
+        // Create inverse edges if needed
         inverseEdges { edges ->
             edges
                 .filter { !edges.contains(Edge(it.to, it.from, null)) }
