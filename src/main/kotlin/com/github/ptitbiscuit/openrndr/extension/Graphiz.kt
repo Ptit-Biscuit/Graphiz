@@ -10,6 +10,7 @@ import org.openrndr.draw.Drawer
 import org.openrndr.draw.isolated
 import org.openrndr.draw.loadFont
 import org.openrndr.math.Vector2
+import org.openrndr.math.asRadians
 import org.openrndr.text.writer
 import kotlin.math.cos
 import kotlin.math.pow
@@ -94,7 +95,7 @@ class Graphiz<T>(private val graph: Graph<T>, fontUrl: String) : Extension {
         }
 
     private fun getVertexPosition(index: Int): Vector2 {
-        val vertexIndex = ((360 / graph.vertices.size) * index) * 0.017453292519943295 // to radians
+        val vertexIndex = ((360 / graph.vertices.size) * index).toDouble().asRadians
         return Vector2(cos(vertexIndex), sin(vertexIndex)) * 100.0
     }
 }
